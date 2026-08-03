@@ -2,8 +2,10 @@ package com.luizalebs.comunicacao_api.business.service;
 
 import com.luizalebs.comunicacao_api.api.dto.ComunicacaoInDTO;
 import com.luizalebs.comunicacao_api.api.dto.ComunicacaoOutDTO;
+import com.luizalebs.comunicacao_api.business.client.EmailNotificacaoClient;
 import com.luizalebs.comunicacao_api.business.converter.ComunicacaoConverter;
 import com.luizalebs.comunicacao_api.infraestructure.entities.ComunicacaoEntity;
+import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
 import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
 import com.luizalebs.comunicacao_api.infraestructure.repositories.ComunicacaoRepository;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,12 @@ public class ComunicacaoService {
 
     private final ComunicacaoRepository repository;
     private final ComunicacaoConverter converter;
+    private final EmailNotificacaoClient emailClient;
 
-    public ComunicacaoService(ComunicacaoRepository repository, ComunicacaoConverter converter) {
+    public ComunicacaoService(ComunicacaoRepository repository, ComunicacaoConverter converter, EmailNotificacaoClient emailClient) {
         this.repository = repository;
         this.converter = converter;
+        this.emailClient = emailClient;
     }
 
     public ComunicacaoOutDTO agendarComunicacao(ComunicacaoInDTO dto) {
@@ -28,6 +32,13 @@ public class ComunicacaoService {
         dto.setStatusEnvio(StatusEnvioEnum.PENDENTE);
         ComunicacaoEntity entity = converter.paraEntity(dto);
         repository.save(entity);
+
+        if (entity.getModoDeEnvio() == ModoEnvioEnum.EMAIL) {
+            emailClient.enviarEmailComunicacao(entity);
+            entity.setStatusEnvio(StatusEnvioEnum.ENVIADO);
+            repository.save(entity);
+        }
+
         ComunicacaoOutDTO outDTO = converter.paraDTO(entity);
         return outDTO;
     }
