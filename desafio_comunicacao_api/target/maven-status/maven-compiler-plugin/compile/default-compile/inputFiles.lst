@@ -1,0 +1,14 @@
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\mapper\ComunicacaoMapper.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\dto\ComunicacaoInDTO.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\config\RestTemplateConfig.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\repositories\ComunicacaoRepository.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\entities\ComunicacaoEntity.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\client\dto\TarefasDTO.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\ComunicacaoApiApplication.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\converter\ComunicacaoConverter.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\ComunicacaoController.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\client\EmailNotificacaoClient.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\enums\StatusEnvioEnum.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\business\service\ComunicacaoService.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\api\dto\ComunicacaoOutDTO.java
+C:\Users\thais\Documents\Estudos\Java\Portifólio\desafio_comunicacao_api\desafio_comunicacao_api\src\main\java\com\luizalebs\comunicacao_api\infraestructure\enums\ModoEnvioEnum.java
