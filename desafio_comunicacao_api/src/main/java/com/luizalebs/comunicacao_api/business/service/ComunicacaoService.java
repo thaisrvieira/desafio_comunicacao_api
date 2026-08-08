@@ -7,6 +7,8 @@ import com.luizalebs.comunicacao_api.business.mapper.ComunicacaoMapper;
 import com.luizalebs.comunicacao_api.infraestructure.entities.ComunicacaoEntity;
 import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
 import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
+import com.luizalebs.comunicacao_api.infraestructure.exceptions.ComunicacaoNaoEncontradaException;
+import com.luizalebs.comunicacao_api.infraestructure.exceptions.DadosInvalidosException;
 import com.luizalebs.comunicacao_api.infraestructure.repositories.ComunicacaoRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +29,7 @@ public class ComunicacaoService {
 
     public ComunicacaoOutDTO agendarComunicacao(ComunicacaoInDTO dto) {
         if (Objects.isNull(dto)) {
-            throw new RuntimeException();
+            throw new DadosInvalidosException("Os dados da comunicação não podem ser nulos.");
         }
         dto.setStatusEnvio(StatusEnvioEnum.PENDENTE);
         ComunicacaoEntity entity = mapper.paraEntity(dto);
@@ -46,21 +48,20 @@ public class ComunicacaoService {
     public ComunicacaoOutDTO buscarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+            throw new ComunicacaoNaoEncontradaException("Nenhuma comunicação encontrada para o e-mail: " + emailDestinatario);
         }
         return mapper.paraDTO(entity);
-
     }
 
     public ComunicacaoOutDTO alterarStatusComunicacao(String emailDestinatario) {
         ComunicacaoEntity entity = repository.findByEmailDestinatario(emailDestinatario);
         if (Objects.isNull(entity)) {
-            throw new RuntimeException();
+            throw new ComunicacaoNaoEncontradaException(
+                    "Nenhuma comunicação encontrada para o e-mail: " + emailDestinatario);
         }
         entity.setStatusEnvio(StatusEnvioEnum.CANCELADO);
         repository.save(entity);
         return (mapper.paraDTO(entity));
-
     }
 
 }
