@@ -5,6 +5,7 @@ import com.luizalebs.comunicacao_api.api.dto.ComunicacaoOutDTO;
 import com.luizalebs.comunicacao_api.business.service.ComunicacaoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/comunicacao")
@@ -17,7 +18,7 @@ public class ComunicacaoController {
     }
 
     @PostMapping("/agendar")
-    public ResponseEntity<ComunicacaoOutDTO> agendar(@RequestBody ComunicacaoInDTO dto)  {
+    public ResponseEntity<ComunicacaoOutDTO> agendar(@RequestBody @Valid ComunicacaoInDTO dto)  {
         return ResponseEntity.ok(service.agendarComunicacao(dto));
     }
 
