@@ -42,6 +42,12 @@ Com a aplicação rodando, acesse:
 http://localhost:8080/swagger-ui.html
 ```
 
+## Integração com API externa
+
+Quando uma comunicação é agendada com `modoDeEnvio: EMAIL`, esta aplicação realiza uma chamada HTTP para uma API externa de notificação, responsável pelo envio efetivo do e-mail (via SMTP + templates Thymeleaf).
+
+Repositório da API de notificação: [thaisrvieira/notificacao](https://github.com/thaisrvieira/notificacao)
+
 ## Endpoints da Aplicação
 
 - **POST /comunicacao/agendar**: Agenda uma nova comunicação para envio. O corpo da requisição deve ser preenchido com:
